@@ -5,3 +5,7 @@ The following Flask App is vulnerable to common web vulnerabilities (OWASP Top 1
 Currently supported vulnerabilities are:
 - Broken Access Control
 - Server-Side Request Forgery (SSRF)
+
+### To-Do's
+- [ ] Create requirements.txt
+- [ ] Remove Flask debugging
