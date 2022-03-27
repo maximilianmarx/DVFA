@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <title>Web App Analyzer</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/analyzer.css">
+    <link rel="icon" type="image/x-icon" href="../static/faviconAnalyzer.ico">
+</head>
+
+<body>
+    <div class="content center">
+        <h1>Headers</h1>
+        <div class="headers">{{ req.headers }}</div>
+
+        <h1>Preview</h1>
+        <iframe src="{{ req.url }}" frameborder="0"></iframe>
+    </div>
+</body>
+
+</html>

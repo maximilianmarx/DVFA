@@ -1,0 +1,77 @@
+<html>
+
+<head>
+    <title>Secure Coding</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/index.css">
+    <link rel="icon" type="image/x-icon" href="../static/faviconAnalyzer.ico">
+</head>
+
+<body>
+    <div class="content center">
+        <div class="header">
+            <h1>OWASP Top 10 Web Application Security Risks Example</h1>
+        </div>
+
+        <div class="broken-access-control">
+            <h3>Broken Access Control (A01:2021)</h3>
+            <p><b>Example: </b>
+                <a href="/admin">Broken Access Control</a>
+            </p>
+
+            <p>
+                <b>Problem: </b>
+                The web app grants access to an admin login (eg. phpMyAdmin) based on a cookie value
+                (<i>admin=True</i>).
+                The problem here is that this value can be set by an attacker himself (e.g. using a browser extension or
+                a proxy like Burp Suite).
+                The insufficient access control gives unauthorized people access to the admin interface.
+            </p>
+
+            <p>
+                <b>Mitigation: </b>
+                One possible solution would be server-side verification.
+                In this case, the web app would look up a database and verify that the current user trying to access the
+                admin interface actually has the permission to do so (eg. admin property set).
+            </p>
+
+            <p>
+                <b>Further Reading: </b>
+                <a href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/">OWASP reference on Broken Access
+                    Control</a>
+            </p>
+        </div>
+
+        <hr>
+
+        <div class="ssrf">
+            <h3>Server-Side Request Forgery (A10:2021)</h3>
+            <p><b>Example: </b>
+                <a href="/analyzer">SSRF</a>
+            </p>
+
+            <p>
+                <b>Problem: </b>
+                The web application processes the URL submitted through the user without validating its domain.
+                The problem that results through this is that a user might submit an internal address (from the local
+                network).
+                This allows an attacker eg. to map the internal network (reconnaissance, port scanning).
+            </p>
+
+            <p>
+                <b>Mitigation: </b>
+                In order to defend against this type of vulnerability, user supplied input should be sanitized and
+                validated.
+                All private (internal) ip addresses and hostnames (eg. "localhost") should be filtered.
+            </p>
+
+            <p>
+                <b>Further Reading: </b>
+                <a href="https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/">OWASP reference on
+                    SSRF</a>
+            </p>
+        </div>
+
+    </div>
+</body>
+
+</html>
