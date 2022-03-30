@@ -19,32 +19,39 @@
     <link rel="icon" type="image/x-icon" href="../static/guestbook.ico">
 </head>
 
-<div class="container-fluid">
-    <form action="{{ url_for('guestbook') }}" method="post">
-        {{ form.csrf_token }}
-        <div class="row">
-            <h3>Add Comment</h3>
-            <div class="col">
-                {{ form.comment(class="form-control") }}
+<div class="content center">
+    <div class="container-fluid">
+        <form action="{{ url_for('guestbook') }}" method="post">
+            {{ form.csrf_token }}
+            <div class="row">
+                <h3 class="form-header">Add a new Guestbook entry 😊</h3>
+                <div class="col">
+                    {{ form.comment(class="form-control form-comment") }}
+                </div>
+                <div class="col">
+                    {{ form.submit(class="btn btn-primary form-submit") }}
+                </div>
             </div>
-            <div class="col">
-                {{ form.submit(class="btn btn-primary") }}
-            </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 
-{% if not search_query %}
-<h3>Current guestbook entries:</h3>
-{% else %}
-<h3>Results for "{{ search_query }}"</h3>
-{% endif %}
+    <p class="search-hint">Psssst.. you can even <a href="{{ url_for('guestbook', q='test') }}"
+            class="search-hint-anchor">search</a> through the
+        comments 🤫</p>
 
-{% for comment in comments %}
-<div class="comment">
-    <p>{{ comment }}</p>
+    {% if not search_query %}
+    <h3 class="comment-header">Current guestbook entries:</h3>
+    {% else %}
+    <h3 class="comment-header">Results for "{{ search_query }}"</h3>
+    {% endif %}
+
+    {% for comment, date in comments %}
+    <div class="comment">
+        <p class="comment-content">{{ comment }}</p>
+        <p class="comment-date">Posted on {{ date }}</p>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
 
 </html>
 

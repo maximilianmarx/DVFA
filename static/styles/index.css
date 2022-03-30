@@ -15,7 +15,7 @@ body {
     font-family: var(--font-text);
     color: var(--color-theme);
     background: var(--color-bg);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 .container {
     text-align: center;

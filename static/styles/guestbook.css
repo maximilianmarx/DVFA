@@ -44,6 +44,48 @@ body {
 ::selection {
     background: #949e91;
 }
-a{
+a {
     color: #6e8d47;
+}
+a:hover {
+    color: #6e8d47;
+}
+.row{
+    display: block;
+    margin-top: 50px;
+    padding-bottom: 100px;
+}
+.col{
+    width: 400px
+}
+.comment{
+    margin-bottom: 18px;
+    padding: 10px 10px 22px 10px;
+    background-color: #6e8d47;
+    border-radius: 6px;
+}
+.comment-content{
+    margin-bottom: 4px;
+}
+.comment-date{
+    font-size: 12px;
+    font-weight: bolder;
+    color: #232822c0;
+    float: right;
+}
+.comment-header {
+    padding-bottom: 20px;
+}
+.form-header {
+    margin-left: 15px;
+}
+.form-submit{
+    margin-top: 10px;
+    float: right;
+}
+.form-comment {
+    height: 100px !important;
+}
+.search-hint {
+    font-size: 12px;
 }

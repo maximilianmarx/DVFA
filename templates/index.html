@@ -71,6 +71,39 @@
             </p>
         </div>
 
+        <hr>
+
+        <div class="xss">
+            <h3>Cross-Site Scripting (A7:2017)</h3>
+            <p><b>Example: </b>
+                <a href="/guestbook">XSS</a>
+            </p>
+
+            <p>
+                <b>Problem: </b>
+                The web application processes the user submitted input without any content "validation" or sanitization.
+                The problem that results through this is that a user with malicious intents might submit some HTML valid
+                code.
+                Since the content of each comment is shown, this vulnerability impacts all visitors.
+            </p>
+
+            <p>
+                <b>Mitigation: </b>
+                This particular web application is vulnerable to XSS attacks because Flask's "autoescape" is disabled on
+                that particular site.
+                This countermeasure is enabled by default.
+                I disabled it for the sake of this demonstration.
+                Web applications should always sanitize user submitted data to escape HTML special characters.
+            </p>
+
+            <p>
+                <b>Further Reading: </b>
+                <a href="https://owasp.org/www-project-top-ten/2017/A7_2017-Cross-Site_Scripting_(XSS)">OWASP reference
+                    on
+                    XSS</a>
+            </p>
+        </div>
+
     </div>
 </body>
 
