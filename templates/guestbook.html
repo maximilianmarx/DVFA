@@ -1,0 +1,51 @@
+{% autoescape false %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>My Guestbook</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Styling -->
+    <link rel="stylesheet" type="text/css" href="../static/styles/guestbook.css">
+    <link rel="icon" type="image/x-icon" href="../static/guestbook.ico">
+</head>
+
+<div class="container-fluid">
+    <form action="{{ url_for('guestbook') }}" method="post">
+        {{ form.csrf_token }}
+        <div class="row">
+            <h3>Add Comment</h3>
+            <div class="col">
+                {{ form.comment(class="form-control") }}
+            </div>
+            <div class="col">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </div>
+    </form>
+</div>
+
+{% if not search_query %}
+<h3>Current guestbook entries:</h3>
+{% else %}
+<h3>Results for "{{ search_query }}"</h3>
+{% endif %}
+
+{% for comment in comments %}
+<div class="comment">
+    <p>{{ comment }}</p>
+</div>
+{% endfor %}
+
+</html>
+
+{% endautoescape %}

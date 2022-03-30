@@ -1,7 +1,16 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, flash, url_for, redirect, request
 import requests
+import forms
+
+import db
+
+"""
+    XSS: https://github.com/bgres/xss-demo
+"""
 
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = "suchSecret"
 
 @app.route('/')
 @app.route('/index')
@@ -35,6 +44,22 @@ def follow_url():
         else:
             return render_template('analyzer-empty-state.html')
     """
+
+# XSS, CSRF (no CSRF-Token)
+# Add, View, Search Comments
+@app.route('/guestbook', methods=['GET', 'POST'])
+def guestbook():
+    search_query = request.args.get('q')
+    comments = db.get(search_query)
+    print("COMMENTS: ", comments)
+    form = forms.AddCommentForm()
+    if form.validate_on_submit():
+        # Add comment
+        db.add(form.comment.data)
+
+        # Does this also need form, comments and search_query?
+        return redirect(url_for('guestbook'))
+    return render_template('guestbook.html', form=form, comments=comments, search_query=search_query)
 
 if __name__ == '__main__':
     app.run(debug=True)
