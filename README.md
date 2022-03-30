@@ -1,4 +1,4 @@
-# DVFA: Damn Vulnerable Flask App
+# DVFA: Damn Vulnerable Flask App 🕸🐍
 
 The following Flask App is vulnerable to common web vulnerabilities (OWASP Top 10).
 
