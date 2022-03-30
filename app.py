@@ -5,7 +5,7 @@ import forms
 import db
 
 """
-    XSS: https://github.com/bgres/xss-demo
+    XSS Flask prevention Reference: https://github.com/bgres/xss-demo
 """
 
 app = Flask(__name__)
