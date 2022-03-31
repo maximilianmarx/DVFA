@@ -1,91 +1,111 @@
 /* CSS partially borrowed from: https://codepen.io/borntofrappe/pen/GXLWzP */
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Nova+Mono');
+
 :root {
     --font-header: 'Nova Mono', monospace;
     --font-text: 'Open Sans', sans-serif;
     --color-theme: #F1EEDB;
     --color-bg: #282B24;
-  
+
     --animation-sentence: 'You know you\'re supposed to leave, right?';
     --animation-duration: 40s;
 }
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 body {
     width: 100%;
     font-family: var(--font-text);
     color: var(--color-theme);
     background: var(--color-bg);
-    overflow: hidden;
+    overflow-x: hidden;
 }
+
 .container {
     text-align: center;
     margin: 1rem 0.5rem 0;
 }
+
 .container h1 {
     font-family: var(--font-header);
     font-size: calc(4rem + 2vw);
-      text-transform: uppercase;
+    text-transform: uppercase;
 }
+
 .container p {
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     font-size: 2rem;
     margin: 1.5rem 0 3rem;
 }
+
 .center {
     width: 800px;
-    margin:0 auto;
+    margin: 0 auto;
 }
+
 ::selection {
     background: #949e91;
 }
+
 a {
     color: #6e8d47;
 }
+
 a:hover {
     color: #6e8d47;
 }
-.row{
+
+.row {
     display: block;
     margin-top: 50px;
     padding-bottom: 100px;
 }
-.col{
+
+.col {
     width: 400px
 }
-.comment{
+
+.comment {
     margin-bottom: 18px;
     padding: 10px 10px 22px 10px;
     background-color: #6e8d47;
     border-radius: 6px;
 }
-.comment-content{
+
+.comment-content {
     margin-bottom: 4px;
 }
-.comment-date{
+
+.comment-date {
     font-size: 12px;
     font-weight: bolder;
     color: #232822c0;
     float: right;
 }
+
 .comment-header {
     padding-bottom: 20px;
 }
+
 .form-header {
     margin-left: 15px;
 }
-.form-submit{
+
+.form-submit {
     margin-top: 10px;
     float: right;
 }
+
 .form-comment {
     height: 100px !important;
 }
+
 .search-hint {
     font-size: 12px;
 }
